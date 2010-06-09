@@ -204,6 +204,7 @@ class basexmpp(object):
 						   self.event_handlers[name])
 
 	def event(self, name, eventdata = {}): # called on an event
+		logging.debug('EVENT: "%s"' % name)
 		for handler in self.event_handlers.get(name, []):
 			if handler[1]: #if threaded
 				#thread.start_new(handler[0], (eventdata,))
